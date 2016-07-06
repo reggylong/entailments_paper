@@ -1,13 +1,9 @@
 \section{Approach}
 
-\subsection{Dataset}
-We use the \newsspike{} dataset collected in \citet{zhang2013parallelparaphrase}.
-This dataset is a collection of news article texts, all taken from the months of
-Janurary and February in 2013, and contains 546,713 such texts. On average,
-each news article contains between 31 and 32 sentences.
-
 \subsection{Pipeline}
-We describe the pipeline $p$ that we run on each text $T$. 
+We describe the pipeline $p$ that we run on each text $T$. The pipeline
+consists of multiple natural language annotators that we run in 
+the sequence outlined below.
 \citep{manning2014stanford}
 \subsubsection{Tokenizer}
 \subsubsection{Sentence Splitter}
@@ -24,4 +20,6 @@ We describe the pipeline $p$ that we run on each text $T$.
 \citet{clark2015coref}
 
 \subsection{Relation Extractor}
+Limit max number of entailments taken per clause to 100.
 \citet{angeli2015openie}
+\citet{fader11reverb}

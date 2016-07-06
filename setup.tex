@@ -1,0 +1,35 @@
+\section{Setup}
+This section formalizes the notion of an entailment graph, and describes
+the notation used in the rest of the paper.
+\subsection{Notation}
+Let $u_{1:n}$ denote a concatenation of utterances, and 
+$d$ denote the date that an article was written. We define
+an text $T \equiv (u_{1:n}, d)$. For example, a text could consist
+of the following:
+\begin{description}
+  \item $u_1 =$ President Obama heads to Minneapolis today to push his message of reducing gun violence.
+  \item $u_2 =$ It comes after a weekend where we saw more devastating gun deaths.
+  \item $d =$  February 4, 2013
+  \item $T = (u_{1:2}, d)$
+\end{description}
+
+We apply a pipeline $p$ of natural language annotators 
+to every utterance in $u_{1:n}$ in a text $T$. 
+The pipeline $p$ takes as input an article, and outputs an annotation $A$.
+An annotation $A$ is a set where each element contains
+information about the the text $T$. For example, if our
+pipeline consisted of a sentence splitter, then calling $p$
+on the example above would produce:
+\begin{center}
+  $p(T) = A = \{\text{Sent 1: } u_1, \text{Sent 2: } u_2\}$.
+\end{center}
+
+Finally, we use a relation extractor $e$ that takes as input
+the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$.
+
+\subsection{Problem Statement}
+Given a set of $N$ texts, $\{T_i\}_{i=1}^{N}$, generate a set of 
+relations $R$. Then learn a mapping
+from relations to an entailment graph $G$ that maximizes the number of
+correct entailments and minimizes the number of incorrect entailments.
+

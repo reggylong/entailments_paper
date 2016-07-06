@@ -7,9 +7,9 @@ $d$ denote the date that an article was written. We define
 an text $T \equiv (u_{1:n}, d)$. For example, a text could consist
 of the following:
 \begin{description}
-  \item $u_1 =$ President Obama heads to Minneapolis today to push his message of reducing gun violence.
-  \item $u_2 =$ It comes after a weekend where we saw more devastating gun deaths.
-  \item $d =$  February 4, 2013
+  \item $u_1 =$ \nl{President Obama heads to Minneapolis today to push his message of reducing gun violence.}
+  \item $u_2 =$ \nl{It comes after a weekend where we saw more devastating gun deaths.}
+  \item $d =$  \nl{February 4, 2013}
   \item $T = (u_{1:2}, d)$
 \end{description}
 
@@ -25,7 +25,12 @@ on the example above would produce:
 \end{center}
 
 Finally, we use a relation extractor $e$ that takes as input
-the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$.
+the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$,
+where each relation $r$ is a tuple (\wl{subect}, \wl{predicate}, \wl{object}).
+For example, one such relation from the aforementioned text is the following
+\begin{center}
+  $r$ = (\nl{Obama}, \nl{heads to}, \nl{Minneapolis})
+\end{center}
 
 \subsection{Problem Statement}
 Given a set of $N$ texts, $\{T_i\}_{i=1}^{N}$, generate a set of 

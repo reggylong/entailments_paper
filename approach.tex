@@ -4,8 +4,18 @@ We describe the pipeline $p$ that we run on each text $T$. The pipeline
 consists of multiple natural language annotators that we run in 
 the sequence outlined below.
 \citep{manning2014stanford}
+
 \subsection{Tokenizer}
+The tokenizer takes the utterances $u_{1:n}$ and outputs a tuple of
+each word in $u_{1:n}$. For example, the tokenizer would transform
+the sentence \nl{He'll travel to Minneapolis} to the tuple
+\begin{center}
+  (\nl{He}, \nl{'ll}, \nl{travel}, \nl{to}, \nl{Minneapolis})
+\end{center}
 \subsection{Sentence Splitter}
+Given the tokens of the utterances $u_{1:n}$, the sentence splitter outputs
+a tuple of the sentences $(u_1,\dots,u_n)$. This is necessary
+for the tasks below because they operate at the sentence level.
 \subsection{Part of Speech}
 
 \begin{figure}

@@ -7,9 +7,10 @@ $d$ denote the date that an article was written. We define
 an text $T \equiv (u_{1:n}, d)$. For example, a text could consist
 of the following:
 \begin{description}
-  \item $u_1 =$ \nl{President Obama heads to Minneapolis today to push his message of reducing gun violence.}
-  \item $u_2 =$ \nl{It comes after a weekend where we saw more devastating gun deaths.}
-  \item $d =$  \nl{February 4, 2013}
+
+  \item $u_1 =$ \nl{The hearing came as the White House announced that President Obama will travel to Minneapolis on Monday to meet with local leaders and law enforcement officials about his newly unveiled gun control plans.}
+  \item $u_2 =$ \nl{White House spokeswoman Joanna Rosholm said that `Minneapolis is a city that has taken important steps to reduce gun violence and foster a conversation in the community about what further action is needed'.}
+  \item $d =$  \nl{January 31, 2013}
   \item $T = (u_{1:2}, d)$
 \end{description}
 
@@ -29,7 +30,7 @@ the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r
 where each relation $r$ is a tuple (\wl{subect}, \wl{predicate}, \wl{object}).
 For example, one such relation from the aforementioned text is the following
 \begin{center}
-  $r$ = (\nl{Obama}, \nl{heads to}, \nl{Minneapolis})
+  $r$ = (\nl{Obama}, \nl{will travel to}, \nl{Minneapolis})
 \end{center}
 
 \subsection{Problem Statement}

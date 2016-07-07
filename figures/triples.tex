@@ -15,7 +15,7 @@
 ]
 \addplot 
     coordinates {(1,17) (2,17) (3,16)};
-            \addlegendentry{\textsc{Predicates}}
+            \addlegendentry{\textsc{Relations}}
 
 \addplot 
     coordinates {(1,24) (2,72) (3,68)};
@@ -33,5 +33,10 @@
 \end{tikzpicture}
   \caption{
     \label{fig:triples}
+    Counts of unique relations, subjects, objects, and entities,
+    respectively, where uniqueness is determined by a case
+    insensitive string match. The number of unique entities is given by
+    the cardinality of the set intersection between subjects and
+    objects.
   }
 \end{figure}

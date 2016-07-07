@@ -3,6 +3,7 @@
 \begin{axis}[
     scale=0.9,
     ybar, 
+    enlarge x limits={true, abs value=0.50},
     xtick=data,
     legend pos=north west,
     ylabel=Counts (million),
@@ -25,6 +26,6 @@
     Results from \reftab{raw_counts}, except we linearly
     extrapolate the \openiecoref{} counts using a rate of
     $532/513=1.037$ to account for the difference in 
-    number of articles successfully processed.
+    number of articles successfully processed. (Higher is better).
   }
 \end{figure}

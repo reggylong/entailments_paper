@@ -16,6 +16,7 @@ the sentence \nl{He'll travel to Minneapolis} to the tuple
 Given the tokens of the utterances $u_{1:n}$, the sentence splitter outputs
 a tuple of the sentences $(u_1,\dots,u_n)$. This is necessary
 for the tasks below because they operate at the sentence level.
+
 \subsection{Part of Speech}
 
 \begin{figure}
@@ -26,7 +27,19 @@ Part of Speech tags on example sentence.
 }
 \end{figure}
 
-\citet{toutanova2003tagger}
+We run the Stanford Part of Speech (POS) tagger \citep{toutanova2003tagger}
+on each utterance $(u_1,\dots,u_n)$. The tagger uses the Penn Treebank
+POS tag set. For each utterance $u_i$, the
+tagger outputs a tuple of tags $t=(t_1,\dots,t_m)$, where the 
+tag $t_j$ corresponds to token $j$ in utterance $i$.
+
+\subsection{Lemmatizer}
+The lemmatizer operates on a token-by-token basis, and 
+produces a canonical representation for each token. For 
+example, the lemmatizer would modify the utterance
+\nl{He went to the better team.} to 
+\nl{He go to the good team.}
+
 \subsection{Named Entity Recognition}
 
 \begin{figure}
@@ -37,7 +50,11 @@ Named Entity Recognition on example sentence.
 }
 \end{figure}
 
-\citet{finkel2005incorporating}
+Next, we run the Stanford Named Entity Recognition (NER)
+annotator on the sentences \citep{finkel2005incorporating}. The annotator is
+based on a Conditional-Random Field, and
+classifies tokens into one of four categories: People, Location, Organization, Misc.
+
 \subsection{Dependency Parse}
 
 \begin{figure}
@@ -48,10 +65,25 @@ Dependency parse on example sentence.
 }
 \end{figure}
 
-\citet{chen2014nndep}
+A dependency parse represents the relationships between words
+in an utterance. This is useful for finding the subject and 
+the object in a relation triple. We run Stanford's Neural 
+Network Dependency Parser on each utterance $(u_1,\dots,u_n)$
+\citep{chen2014nndep}.
 \subsection{Mention Resolver}
+We use the Stanford Mention Resolver to collapse contiguous
+named entities into one. For example, the NER annotator would
+label both tokens in \nl{Barack Obama} as Persons, when in reality,
+there is only one person. The mention annotator collapses the
+\nl{Barack} and \nl{Obama} entities into one entity.
 
-\subsection{Natural Logic Resolver}
+\subsection{Natural Logic}
+The Stanford Natural Logic annotator finds
+quantifiers for each utterance. For each token,
+the annotator ascribes a polarity (either affirmative
+or negative).
+More information can be found at 
+\url{http://nlp.stanford.edu/projects/natlog.shtml}.
 \subsection{Coreference Resolution}
 
 \begin{figure}
@@ -62,7 +94,12 @@ Coreference resolution on example sentence.
 }
 \end{figure}
 
-\citet{clark2015coref}
+We use the Stanford Statistical Coreference system implemented by
+\citet{clark2015coref}. The annotator outputs a directed graph
+which encodes the reference relationships between mentions in 
+$(u_1,\dots,u_n)$. For example, in $u_1$ given above, it would
+recognize that the word \nl{his} in \nl{\dots his newly unveiled \dots}
+refers to Barack Obama.
 
 \section{Relation Extractor}
 Limit max number of entailments taken per clause to 100.

@@ -27,14 +27,17 @@ on the example above would produce:
 
 Finally, we use a relation extractor $e$ that takes as input
 the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$,
-where each relation $r$ is a tuple (\wl{subect}, \wl{predicate}, \wl{object}).
+where each relation $r$ is a tuple (\wl{subect}, \wl{relation}, \wl{object}).
 For example, one such relation from the aforementioned text is the following
 \begin{center}
   $r$ = (\nl{Obama}, \nl{will travel to}, \nl{Minneapolis})
 \end{center}
 
-\subsection{Entailment Graph}
-
+\subsection{Entailment Graphs}
+An entailment graph $G=(V,E)$ is a directed graph where the vertices $V$
+are relations, and the edge set $E$ indicates the entailments between
+relations.
+\rl{Should include a graphic for an example entailment graph}
 \subsection{Problem Statement}
 Given a set of $N$ texts, $\{T_i\}_{i=1}^{N}$, generate a set of 
 relations $R$. Then learn a globally consistent mapping

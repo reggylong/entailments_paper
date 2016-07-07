@@ -1,0 +1,25 @@
+\begin{figure}[ht]
+\begin{tikzpicture}
+\begin{axis}[
+    scale=0.9,
+    ybar, 
+    xtick=data,
+    ylabel=Counts (million),
+    xticklabels={
+      \reverb, \openie, \openiecoref
+    },
+]
+\addplot 
+    coordinates {(1,17) (2,17) (3,16)};
+            \addlegendentry{\textsc{Sentences}}
+
+\addplot 
+    coordinates {(1,68) (2,72) (3,24)};
+            \addlegendentry{\textsc{Triples}}
+
+\end{axis}
+\end{tikzpicture}
+  \caption{
+    \label{fig:extrapolated}
+  }
+\end{figure}

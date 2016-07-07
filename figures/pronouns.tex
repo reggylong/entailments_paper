@@ -1,0 +1,22 @@
+\begin{figure}[ht]
+\begin{tikzpicture}
+\begin{axis}[
+    ymin=0,
+    scale=0.9,
+    ybar, 
+    xtick=data,
+    ylabel=Percent,
+    xticklabels={
+      \reverb, \openie, \openiecoref
+    },
+]
+\addplot 
+    coordinates {(1,34) (2,24) (3,11)};
+\end{axis}
+\end{tikzpicture}
+  \caption{
+    \label{fig:pronouns}
+    Percentage of relation triples that contain a pronoun in either
+    the subject or object (Lower is better).
+  }
+\end{figure}

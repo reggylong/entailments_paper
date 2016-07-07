@@ -1,0 +1,21 @@
+\begin{table}
+  \small %% Simplify table, multiple arguments.
+\centering
+\begin{tabular}{lllllll}
+  Type & Machines & CPUs & RAM & Time \\ 
+  \toprule
+  \openiecoref & 12 & 32 & 128Gb & 64 days\\
+  \openie          & 12 & 8 & 16Gb & 11 days\\ 
+  \reverb          & 15 & 8 & 16Gb & 10 days\\
+  \bottomrule
+\end{tabular}
+\caption{Statistics on the computation required
+  to annotate the data. For example, the first row
+  indicates that we used 12 machines, each with 32 CPUs,
+  and 128Gb of RAM available. The time column represents
+  an estimate of the CPU time, where we assume CPU usage
+  is at 50\% per core.
+  \label{tab:resources} 
+  }
+
+\end{table}

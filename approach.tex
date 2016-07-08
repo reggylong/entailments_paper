@@ -110,7 +110,29 @@ This is the lowest recommended value that the system recommends, which we
 chose to reduce the computational power required.
 \rl{Have example sentence and the relations parsed from it}.
 
-\subsection{With Coreference Resolution}
+
+
+\paragraph{Coreference Resolution.}
+With coreference resolution, the OpenIE system will replace all
+pronomial references of an entity with what it believes to be the canonical
+mention of that entity. Consider the sentence, \nl{He will travel to Minneapolis,}
+where \nl{He} refers to Barack Obama. If we did not replace the pronomial
+mention, OpenIE would extract the relation triple
+\begin{center}
+(\nl{He}, \nl{will travel to}, \nl{Minneapolis}),
+\end{center}
+instead of 
+\begin{center}
+(\nl{Barack Obama}, \nl{will travel to}, \nl{Minneapolis}),
+\end{center}
+This is undesired because the entity identity provides statistics on 
+the co-occurrence of certain relations. For example, an entailment
+graph learning system might see that the triples
+\begin{description}
+  \item (\nl{Barack Obama}, \nl{will travel to}, \nl{Minneapolis})
+  \item (\nl{Barack Obama}, \nl{will visit}, \nl{Minneapolis})
+\end{description}
+tend to occur together, and infer that \textsc{visit} implies \textsc{travel}.
 
 
 \citet{fader11reverb}

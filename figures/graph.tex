@@ -1,0 +1,19 @@
+\begin{figure}
+  \centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm,minimum size=5em,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1) {Visit};
+  \node[main node] (2) [below left of=1] {Travel};
+  \node[main node] (3) [right of=2] {Leave};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge [right] node[left] {} (2)
+    (3) edge [left] node[right] {} (2)
+    (3) edge [right] node[left] {} (1);
+\end{tikzpicture}
+  \caption{
+\label{fig:graph}
+Example entailment graph.
+}
+\end{figure}

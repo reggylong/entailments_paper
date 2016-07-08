@@ -27,7 +27,7 @@ on the example above would produce:
 
 Finally, we use a relation extractor $e$ that takes as input
 the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$,
-where each relation $r$ is a tuple (\wl{subect}, \wl{relation}, \wl{object}).
+where each relation $r$ is a tuple $r=$(\wl{subect}, \wl{relation}, \wl{object}).
 For example, one such relation from the aforementioned text is the following
 \begin{center}
   $r$ = (\nl{Obama}, \nl{will travel to}, \nl{Minneapolis})
@@ -37,11 +37,19 @@ For example, one such relation from the aforementioned text is the following
 An entailment graph $G=(V,E)$ is a directed graph where the vertices $V$
 are relations, and the edge set $E$ indicates the entailments between
 relations.
-\rl{Should include a graphic for an example entailment graph}
+\input figures/graph
+\reffig{graph} shows an example entailment graph with the three relations:
+\textsc{visit}, \textsc{travel}, and \textsc{leave}. 
+To visit a location implies the travel relation,
+and to leave a location implies that one previously visited/traveled to that
+location. Each vertex is typed (e.g. \textsc{visit} is a relation between
+a Person and a Location), and edges can only connect two vertices with
+the same type.
+
 \subsection{Problem Statement}
 Given a set of $N$ texts, $\{T_i\}_{i=1}^{N}$, generate a set of 
 relations $R$. Then learn a globally consistent mapping
 from relations to an entailment graph $G$. This paper will focus
 on the first half of the problem.
 
-\input figures/graph
+

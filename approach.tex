@@ -102,10 +102,15 @@ recognize that the word \nl{his} in \nl{\dots his newly unveiled \dots}
 refers to Barack Obama.
 
 \section{Relation Extractor}
-Limit max number of entailments taken per clause to 100.
-\citet{angeli2015openie}
-\citet{fader11reverb}
+After generating the annotation $A$ for a text $T$, we use our 
+extractor $e$ to extract relation triples $R=e(A,T)$. For this 
+step, we use the OpenIE system developed by \citet{angeli2015openie}, and
+limit the maximum number of entailments taken per clause to 100 entailments.
+This is the lowest recommended value that the system recommends, which we
+chose to reduce the computational power required.
+\rl{Have example sentence and the relations parsed from it}.
 
 \subsection{With Coreference Resolution}
 
-\subsection{Without Coreference Resolution}
+
+\citet{fader11reverb}

@@ -6,26 +6,21 @@
     enlarge x limits={true, abs value=0.50},
     xtick=data,
     legend pos=north west,
-    ylabel=Counts (million),
+    ylabel=Relation triples per sentence,
     xticklabels={
       \reverb, \openie, \openiecoref
     },
 ]
 \addplot 
-    coordinates {(1,17) (2,17) (3,16)};
-            \addlegendentry{\textsc{Sentences}}
-
-\addplot 
-    coordinates {(1,24) (2,72) (3,68)};
+    coordinates {(1,1.38) (2,4.2) (3,4.3)};
             \addlegendentry{\textsc{Triples}}
 
 \end{axis}
 \end{tikzpicture}
   \caption{
     \label{fig:extrapolated}
-    Results from \reftab{raw_counts}, except we linearly
-    extrapolate the \openiecoref{} counts using a rate of
-    $532/513=1.037$ to account for the difference in 
-    number of articles successfully processed. (Higher is better).
+    Compares the number of relation triples extracted per
+    sentence. Both \openie systems achieve a similar result,
+    while \reverb produces fewer triples per sentence.
   }
 \end{figure}

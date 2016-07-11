@@ -20,12 +20,7 @@ each news article contains between 31 and 32 sentences.
 
 \input tables/resources.tex
 \input tables/raw_counts.tex 
-\input figures/extrapolated.tex
 
-\input figures/pronouns.tex
-
-\input figures/triples.tex
-\input tables/pronoun_adjusted.tex
 
 \paragraph{Computational Feasibility.}
 For each of the three types, we time out
@@ -47,6 +42,8 @@ more limited).
 We refer to \citet{fader11reverb} for
 the specifics of the \reverb{} system.
 
+\input figures/extrapolated.tex
+\input figures/triples.tex
 \reffig{extrapolated} shows that
 the two \openie{} systems extract three times
 as many relations per sentence than \reverb{}. Importantly,
@@ -61,6 +58,8 @@ the amount of noise in the extracted relations between \openie{}
 and \reverb{}.
 
 \paragraph{Coreference Resolution.}
+\input figures/pronouns.tex
+\input tables/pronoun_adjusted.tex
 Intuitively, using coreference resolution should reduce the number
 of relation triples that contain pronouns. \reffig{pronouns} shows
 that this is indeed the case; \openiecoref{} halves the percentage

@@ -1,25 +1,17 @@
 
-% What do I want to say
-% We want to do question answering 
-% Large scale question answering is hard
-% It is hard because many ways to ask same question
-% Impractical to train system on every way to ask same question
-% Also system may need to perform inference
-% For example 
-% Can learn inference rules from entailment graphs
-% Problem is to build these graphs
+Textual inference is a critical factor in
+building question-answering systems at web-scale. 
+Entailment graphs are a compact method to 
+represent a set of globally consistent inference rules. 
+In this paper, we consider the task of learning entailment graphs. 
+First, we examine the computational difficulties associated
+with generating a large dataset for learning such entailment graphs.
+We then compare two state of the art relation extraction systems.
+Lastly, we propose using coreference resolution for increasing the amount of 
+information extracted per sentence. Although more computationally
+intensive, using coreference resolution significantly increases
+the amount of information extracted.
 
-
-% What do I want to say
-% Entailment graphs useful way to represent inference rules
-% Ex: building robust question answering systems
-% Ex: Mismatch between utterance and knowledge base
-% In order to get wide coverage, need a lot of data
-% In order to use for large scale qa, need a good global entailment graph
-
-Entailment graphs are a compact method of representing 
-a set of inference rules for relationships between
-entities. Learning such a graph 
 
 
 % Contributions:
@@ -31,8 +23,8 @@ entities. Learning such a graph
 
 
 % Outline
-% 
-%
+% Entailment graphs exciting model to learn textual inference
+% Critical component to question-answering systems
 %
 %
 %

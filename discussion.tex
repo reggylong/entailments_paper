@@ -1,7 +1,55 @@
 \section{Discussion}
 
-Identify named entities across articles by clustering
-Identify different articles about the same event
-Build entailment information into text for question answering (instead
-of paraphrasing)
-\citep{berant2014paraphrasing,berant2013freebase}
+Teaching question-answering systems to perform textual inference
+is a critical component of building such systems at web-scale. 
+Due to the scarcity and cost of acquiring supervised data, learning
+open domain question answering systems remains a hard problem. 
+
+Recent approaches have used paraphrasing as an intermediate to question-answering
+\citep{berant2014paraphrasing}, in which the system selects the 
+logical form which best paraphrases the original question. Shifting the complexity of the system from the semantic parsing step to the
+paraphrasing step allows QA systems to take advantage of the large
+amount of unstructured text on the web.
+Such a model,
+however, assumes that similar relations between entities are bidirectional 
+in entailment. For example, a paraphrase system may correctly identify
+the pair of sentences as paraphrases
+\begin{description}
+  \item \nl{The San Antonio Spurs and Chicago Bulls battled at United Center.}
+  \item \nl{The San Antonio Spurs and Chicago Bulls played at United Center.}
+\end{description}
+
+However, it may also mistakenly identify the following as paraphrases
+\begin{description}
+  \item \nl{The French and Seventh Coalition Army battled at Waterloo in 1815,}
+  \item \nl{The French and Seventh Coalition Army played at Waterloo in 1815,}
+\end{description}
+since the words \nl{battle} and \nl{play} tend to co-occur in 
+texts involving sports. 
+
+Using entailment graphs as an intermediary instead leads to a more
+sophisticated representation of relationships between relations, one that 
+we can build using unsupervised methods on unstructured text \citep{berant2010global,berant2011global,berant2012efficient}. Ultimately, we would like to
+build a QA system where we can automatically transform natural
+language questions into a form that the semantic parser can handle.
+
+The first step to learning an entailment graph large enough to
+support question-answering over Freebase or the web is to generate
+a sufficiently large dataset. To this end, we analyzed the computational
+considerations required to annotate the \newsspike{} dataset. Furthermore,
+we demonstrated that \openie{} is more efficient at extracting relation
+triples compared to \reverb{}. Lastly, we showed that our method of
+resolving referents as part of the information extraction pipeline
+significantly increases the number of usable relation triples.
+
+Although our relation extractions are locally consistent within
+news articles, they not necessarily consistent across all articles.
+The next step to generate datasets suitable for learning entailment
+graphs is to use some sort of hierarchical clustering
+algorithm to canonicalize the entities globally. More broadly,
+we could use such a dataset for more than learning directional
+inference (Ex: The relation \textsc{invade} implies \textsc{attack}). 
+As \citet{lewis2014semantics} point out, we can also learn temporal
+semantics, such as the notion that the \textsc{visit} relation follows the  
+\textsc{arriving} relation and concludes with the \textsc{leave} relation.
+

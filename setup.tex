@@ -26,9 +26,9 @@ on the example above would produce:
 \end{center}
 
 Finally, we use a relation extractor $e$ that takes as input
-the text $T$ and annotation $A$, and outputs a set of relations $R=\{r_1,\dots,r_m\}$,
-where each relation $r$ is a tuple $r=$(\wl{subect}, \wl{relation}, \wl{object}).
-For example, one such relation from the aforementioned text is the following
+the text $T$ and annotation $A$, and outputs a set of relation triples $R=\{r_1,\dots,r_m\}$,
+where each relation triple $r$ is a tuple $r=$(\wl{subect}, \wl{relation}, \wl{object}).
+For example, one such relation triple from the aforementioned text is the following
 \begin{center}
   $r$ = (\nl{Obama}, \nl{will travel to}, \nl{Minneapolis})
 \end{center}
@@ -48,8 +48,8 @@ the same type.
 
 \subsection{Problem Statement}
 Given a set of $N$ texts, $\{T_i\}_{i=1}^{N}$, generate a set of 
-relations $R$. Then learn a globally consistent mapping
-from relations to an entailment graph $G$. This paper will focus
+relation triples $R$. Then learn a globally consistent mapping
+from relation triples to an entailment graph $G$. This paper will focus
 on the first half of the problem.
 
 

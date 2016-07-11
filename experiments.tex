@@ -15,7 +15,6 @@ This dataset is a collection of news article texts, all taken from the months of
 Janurary and February in 2013, and contains 546,713 such texts. On average,
 each news article contains between 31 and 32 sentences.
 
-\rl{Explain ReVerb runs a separate pipeline}
 \subsection{Results}
 
 
@@ -26,3 +25,43 @@ each news article contains between 31 and 32 sentences.
 \input figures/pronouns.tex
 
 \input figures/triples.tex
+\input tables/pronoun_adjusted.tex
+
+\paragraph{Computational Feasibility.}
+For each of the three types, we time out
+the annotation/extraction process after no more than
+2 minutes. As a result, the three systems failed to
+annotate and extract relations from 
+a significant number (10-30k) of articles. Compared to
+\reverb{} and \openie{}, \openiecoref{} requires a much 
+larger amount of memory to run effectively. For
+example, reducing the amount of memory from 128Gb to
+32Gb increases the runtime by more than 4 times.
+
+\paragraph{\openie{} vs. \reverb.}
+We compare the \openie{} pipeline described above
+against the \reverb{} pipeline. The \reverb{} system uses 
+a separate pipeline, which includes a tokenizer, POS tagger,
+and sentence chunker (similar to a constituency parse, but 
+more limited). 
+We refer to \citet{fader11reverb} for
+the specifics of the \reverb{} system.
+\rl{Need to mention that relations don't increase that much relative
+to the number of triples extracted}.
+
+\reffig{extrapolated} shows that
+the two \openie{} systems extract three times
+as many relations per sentence than \reverb{}. Importantly,
+as \reffig{triples} shows,
+This suggests \rl{FINISH THIS}
+that the \openie{} systems are more efficient. One avenue
+of future work is to investigate quantitative measures for
+the amount of noise in the extracted relations between \openie{}
+and \reverb{}.
+
+\paragraph{Coreference Resolution.}
+Intuitively, using coreference resolution should reduce the number
+of relation triples that contain pronouns. \reffig{pronouns} shows
+that this is indeed the case; \openiecoref{} halves the percentage
+of relation triples with pronouns. See \reftab{pronoun_adjusted} for the
+number of relation triples extracted that don't contain pronouns.

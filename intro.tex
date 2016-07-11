@@ -1,8 +1,51 @@
 \section{Introduction}
 
 
+A central challenge in question-answering (QA) is mapping 
+natural language to logical forms, which are then
+executed against a database to produce a denotation. Previous work
+has explored supervised approaches where the learner
+has access to annotated logical forms \citep{zelle96geoquery,zettlemoyer05ccg,wong07synchronous,zettlemoyer09context,kwiatkowski10ccg}. In general,
+these systems were limited to domain-specific environments, such as
+geography (\textsc{GeoQuery}) or flight-booking (\textsc{ATIS}).
 
+Recent work has expanded the scope of the domain, answering questions 
+over the Freebase knowledge graph, or over unseen websites and tables
+\citep{berant2013freebase,yao2014ie,pasupat2014extraction,pasupat2015compositional}. However, there remains a fundamental tension between supervised
+learning approaches and large-scale question answering. Annotated
+data, due to costs of annotation and rapid growth of the web, will
+always be in short supply.
 
-\citet{zhang2013parallelparaphrase}
+One solution to this problem is to use relatively inexpensive
+unstructured, unannotated data to learn a set of inference
+rules, called entailments, to aid question-answering systems.
+Textual entailments encode relationships between relations. For 
+example, the relation \textsc{visit} implies the relation \textsc{travel}.
+That is to say, the sentence, \nl{Barack Obama will visit to Minneapolis,}
+implies the sentence, \nl{Barack Obama will travel to Minneapolis.} These
+entailments are useful in zero-shot question answering tasks, because
+we can often transform a question into a form that
+the QA system is able to answer.
 
-\citet{zhang2015parallelevents}
+This paper proposes learning large scale entailment graphs,
+which is a compact way of representing globally consistent entailments.
+Learning large graphs requires efficiently extracting training data
+from unstructured text, which is the focus of this paper.
+
+We compare two standard information extraction systems, 
+\reverb{} and \openie{} on a large set of news articles \citep{angeli2015openie,fader11reverb}. These systems take natural language as input and outputs
+a set of information called relation triples. 
+We propose using coreference resolution in the
+information extraction pipeline to
+increase the amount of information extracted that can
+be traced back to specific entities and types.
+
+Our findings are as follows:
+\begin{enumerate}
+\item Computational resources remain a major bottleneck to building a large scale
+  dataset.
+\item \openie{} extracts three times as many relation triples as \reverb{} on the
+  same set of news articles.
+\item Using coreference resolution provides a significant increase in the
+  number of relation triples that preserve entities.
+\end{enumerate}

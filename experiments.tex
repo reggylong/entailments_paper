@@ -46,14 +46,15 @@ and sentence chunker (similar to a constituency parse, but
 more limited). 
 We refer to \citet{fader11reverb} for
 the specifics of the \reverb{} system.
-\rl{Need to mention that relations don't increase that much relative
-to the number of triples extracted}.
 
 \reffig{extrapolated} shows that
 the two \openie{} systems extract three times
 as many relations per sentence than \reverb{}. Importantly,
-as \reffig{triples} shows,
-This suggests \rl{FINISH THIS}
+as \reffig{triples} shows, the number of unique relations 
+remains relatively the same between all three systems, which
+means that \openie{} obtains many more extractions per
+relation than \reverb{}.
+This suggests 
 that the \openie{} systems are more efficient. One avenue
 of future work is to investigate quantitative measures for
 the amount of noise in the extracted relations between \openie{}
@@ -65,3 +66,5 @@ of relation triples that contain pronouns. \reffig{pronouns} shows
 that this is indeed the case; \openiecoref{} halves the percentage
 of relation triples with pronouns. See \reftab{pronoun_adjusted} for the
 number of relation triples extracted that don't contain pronouns.
+Although \openiecoref{} annotated 20k fewer articles, it was able
+to extract the most number of usable relations.
